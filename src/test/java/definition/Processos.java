@@ -36,4 +36,20 @@ public class Processos {
     public static String recuperarCampo(String campo) {
         return RESTSupport.key(campo).toString();
     }
+
+    public static String getLastUser() {
+        return _id;
+    }
+
+    public static void setLastUser(String _id) {
+        Processos._id = _id;
+    }
+
+    public static LazyMap getFields() {
+        return camposJson;
+    }
+
+    public static void addFields(String field, String value) {
+        camposJson.put(field, value);
+    }
 }

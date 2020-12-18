@@ -22,10 +22,12 @@
       Quando o usuario clicar no botao salvar
       Então o usuario deveria ver a mensagem "Processo foi criado com sucesso."
 
+
     @ignore
     Cenario: Criação de um novo processo - POST IGNORE
       Quando o usuario clicar no botao salvar
       Então o usuario deveria ver a mensagem "Processo foi criado com sucesso."
+
 
     Cenario: Mostrar um processo já criado - GET
       Dado o usuario clicar no botao salvar
@@ -65,4 +67,18 @@
         Exemplos:
         | vara     | numero_processo | natureza | partes         |
         | Perus    |     5           | Criminal | Camila X Carol |
-        | Caieiras |     10          | Civil | Camila X Willi |
+        | Caieiras |     10          | Civil    | Camila X Willi |
+
+
+    Cenario: Fazer alteração dos dados de um processo
+      Quando alterar o campo urgente com valor "N"
+      Então a API de proceso deve retornar o status "200"
+
+    Cenario: Excluir um processo
+      Quando excluir o processo
+      Então a API de proceso deve retornar o status "204"
+      E consular novamente o processo
+      Então a API de proceso deve retornar o status "404"
+
+
+

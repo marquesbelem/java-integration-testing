@@ -68,3 +68,17 @@
         | vara     | numero_processo | natureza | partes         |
         | Perus    |     5           | Criminal | Camila X Carol |
         | Caieiras |     10          | Civil    | Camila X Willi |
+
+
+    Cenario: Fazer alteração dos dados de um processo
+      Quando alterar o campo urgente com valor "N"
+      Então a API de proceso deve retornar o status "200"
+
+    Cenario: Excluir um processo
+      Quando excluir o processo
+      Então a API de proceso deve retornar o status "204"
+      E consular novamente o processo
+      Então a API de proceso deve retornar o status "404"
+
+
+
